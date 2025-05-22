@@ -24,10 +24,6 @@
             ],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
             "styles": [
               "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
@@ -48,12 +44,30 @@
                   "maximumError": "4kb"
                 }
               ],
+              "assets": [
+                "src/favicon.ico",
+                "src/assets",
+                {
+                  "glob": "app-config.json",
+                  "input": "src/config",
+                  "output": "config"
+                }
+              ],
               "outputHashing": "all"
             },
             "development": {
               "optimization": false,
               "extractLicenses": false,
-              "sourceMap": true
+              "sourceMap": true,
+              "assets": [
+                "src/favicon.ico",
+                "src/assets",
+                {
+                  "glob": "app-config.json",
+                  "input": "src/config/dev",
+                  "output": "config"
+                }
+              ]
             }
           },
           "defaultConfiguration": "production"
