@@ -17,9 +17,13 @@ export class ConfigService {
   }
 
   public async loadConfig(): Promise<void> {
-    const response: any = await firstValueFrom(this.httpClient.get("/config/app-config.json"));
+    const response: IConfigResponse = await firstValueFrom(this.httpClient.get<IConfigResponse>("/config/app-config.json"));
     this.appConfig = new Config(response.backendBaseUrl);
   }
+}
+
+interface IConfigResponse {
+  backendBaseUrl: string;
 }
 
 export class Config {

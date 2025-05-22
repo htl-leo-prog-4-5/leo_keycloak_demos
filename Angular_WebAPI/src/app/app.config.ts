@@ -42,7 +42,7 @@ function provideConfiguredKeycloak(): EnvironmentProviders {
         provide: INCLUDE_BEARER_TOKEN_INTERCEPTOR_CONFIG,
         useFactory: async (configService: ConfigService)=> {
           await configService.loadConfig();
-          createAuthTokenCondition(configService)
+          return createAuthTokenCondition(configService);
       }, // Specify conditions for adding the Bearer token
         deps: [ConfigService]
       }
