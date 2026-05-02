@@ -2,7 +2,7 @@ name: Deploy Blazor WASM to GH pages
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
 permissions:
   contents: write
 jobs:
